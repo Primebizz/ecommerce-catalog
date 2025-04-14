@@ -1,4 +1,7 @@
-@if (product) {
+<app-navbar></app-navbar>
+
+@defer () {
+  @if (product) {
   <div class="container mx-auto p-4">
     <h1 class="text-3xl font-semibold mb-6"> {{product.name}} </h1>
   
@@ -10,7 +13,7 @@
         <h2 class="text-2xl font-semibold mb-4"> {{product.name}} </h2>
         <p class="text-gray-700 mb-4"> {{product.description}} </p>
         <p class="text-xl font-semibold mb-4"> {{product.price}} </p>
-        <button class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md">Add to Cart</button>
+        <button class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md" (click)="addToCart()">Add to Cart</button>
       </div>
     </div>
   </div>
@@ -18,4 +21,19 @@
 }@else {
   <p>products are unavailable</p>
 }
+
+}
+
+<div class="container mx-auto p-4">
+  <div class="mt-8">
+    <p class="text-xl font-semibold">Total: {{total}} </p>
+    <button class="mt-4 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md">Checkout</button>
+  </div>
+</div>
+
+
+<!-- @placeholder (minimum 5s) {
+  <p>This is just a Placeholder </p>
+} -->
+
 
